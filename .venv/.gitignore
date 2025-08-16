@@ -1,0 +1,52 @@
+# Django-specific files
+
+# Virtual environment directory
+# Pycharm defaults to `venv`
+venv/
+.venv/
+env/
+/Lib/site-packages/
+
+# SQLite database file
+# This is a development database and should not be committed
+db.sqlite3
+
+# User-uploaded media files
+# This directory contains files uploaded by users
+/media/
+
+# Directory for collected static files
+# This is where 'collectstatic' will place all the static assets for production
+/staticfiles/
+
+
+# PyCharm-specific files
+# This directory contains project-specific settings and configurations
+.idea/
+
+# Editor-specific files
+*.iml
+.DS_Store # macOS
+Thumbs.db # Windows
+
+
+# Python-specific files
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+
+# Secret keys and environment variables
+# Keep sensitive information out of version control
+.env
+local_settings.py
+
+# Logs and temporary files
+*.log
+*.tmp

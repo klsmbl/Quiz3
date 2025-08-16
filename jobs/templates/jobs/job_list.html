@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Job Openings{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Job Openings</h1>
+    <form class="d-flex mb-4" method="get">
+        <input class="form-control me-2" type="search" placeholder="Search by title, description, or location" aria-label="Search" name="q" value="{{ request.GET.q }}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+    
+    <div class="list-group">
+        {% for job in jobs %}
+        <a href="{% url 'job_detail' job.pk %}" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ job.job_title }}</h5>
+                <small class="text-muted">{{ job.location }}</small>
+            </div>
+            <p class="mb-1">{{ job.job_description|truncatechars:100 }}</p>
+            <small class="text-muted">Salary: ${{ job.min_offer }} - ${{ job.max_offer }}</small>
+        </a>
+        {% empty %}
+        <div class="alert alert-info" role="alert">
+            No job openings found.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
